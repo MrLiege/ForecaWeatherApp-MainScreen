@@ -12,8 +12,13 @@ struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     
     var body: some View {
-        EmptyView()
-            .onAppear(perform: viewModel.input.onAppear.send)
+        LoadableView(state: viewModel.output.contentState, content: {
+            WeatherView(viewModel: viewModel)
+        }, onAppear: {
+            viewModel.input.onAppear.send(())
+        }, retry: {
+            viewModel.retry()
+        })
     }
 }
 
