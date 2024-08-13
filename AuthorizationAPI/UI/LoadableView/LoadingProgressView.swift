@@ -20,7 +20,7 @@ struct LoadingProgressView: View {
                         .font(.system(size: 80))
                         .fontWeight(.heavy)
                         .foregroundColor(.white)
-                        .background(.blue)
+                        .background{ LinearGradient.skyGradient() }
                         .offset(y: isAnimating ? -20 : 0)
                         .shadow(color: isAnimating ? Color("panelInfoColor") : Color.black,
                                 radius: 1.5, x: 0, y: 2)

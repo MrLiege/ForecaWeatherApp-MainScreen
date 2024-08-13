@@ -47,8 +47,6 @@ struct LoadableView<Content: View>: View {
                 AlertView(message: errorMessage ?? "Error") {
                     retry()
                     showAlert = false
-                } dismiss: {
-                    showAlert = false
                 }
                 .padding(.horizontal)
             }

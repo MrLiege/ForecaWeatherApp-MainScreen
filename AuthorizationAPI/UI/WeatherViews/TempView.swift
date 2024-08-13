@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TempView: View {
-    @ObservedObject var viewModel: MainViewModel
+    let feelsLikeTemp: Double
+    let symbolPhrase: String
     
     var body: some View {
         VStack {
@@ -27,14 +28,14 @@ struct TempView: View {
                     Text("Ощущается: ")
                         .font(.system(size: 16, weight: .regular, design: .default))
                         .foregroundColor(.white)
-                    + Text("\(Int(viewModel.output.model.feelsLikeTemp))°")
+                    + Text("\(Int(feelsLikeTemp))°")
                         .font(.system(size: 20, weight: .semibold, design: .default))
                         .foregroundColor(.white)
                     
                     Text("Описание: ")
                         .font(.system(size: 16, weight: .regular, design: .default))
                         .foregroundColor(.white)
-                    + Text(viewModel.output.model.symbolPhrase)
+                    + Text(symbolPhrase)
                         .font(.system(size: 16, weight: .semibold, design: .default))
                         .foregroundColor(.white)
                 }

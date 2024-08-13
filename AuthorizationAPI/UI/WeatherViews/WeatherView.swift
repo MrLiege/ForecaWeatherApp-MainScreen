@@ -24,8 +24,13 @@ struct WeatherView: View {
                 .padding()
             
             Group {
-                TempView(viewModel: viewModel)
-                WindView(viewModel: viewModel)
+                TempView(feelsLikeTemp: viewModel.output.model.feelsLikeTemp, 
+                         symbolPhrase: viewModel.output.model.symbolPhrase)
+                
+                WindView(relHumidity: viewModel.output.model.relHumidity, 
+                         windSpeed: viewModel.output.model.windSpeed,
+                         windDir: viewModel.output.model.windDir,
+                         windGust: viewModel.output.model.windGust)
             }
             .padding()
             .background(Color("panelInfoColor"))

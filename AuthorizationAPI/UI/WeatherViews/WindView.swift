@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct WindView: View {
-    @ObservedObject var viewModel: MainViewModel
+    let relHumidity: Double?
+    let windSpeed: Double
+    let windDir: Double?
+    let windGust: Double?
     
     var body: some View {
         VStack {
@@ -25,33 +28,10 @@ struct WindView: View {
             
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Влажность: ")
-                        .font(.system(size: 16, weight: .regular, design: .default))
-                        .foregroundColor(.white)
-                    + Text("\(Int(viewModel.output.model.relHumidity ?? 0))%")
-                        .font(.system(size: 16, weight: .semibold, design: .default))
-                        .foregroundColor(.white)
-                    
-                    Text("Скорость: ")
-                        .font(.system(size: 16, weight: .regular, design: .default))
-                        .foregroundColor(.white)
-                    + Text("\(Int(viewModel.output.model.windSpeed)) м/с")
-                        .font(.system(size: 20, weight: .semibold, design: .default))
-                        .foregroundColor(.white)
-                    
-                    Text("Направление: ")
-                        .font(.system(size: 16, weight: .regular, design: .default))
-                        .foregroundColor(.white)
-                    + Text("\(Int(viewModel.output.model.windDir ?? 0))°")
-                        .font(.system(size: 20, weight: .semibold, design: .default))
-                        .foregroundColor(.white)
-                    
-                    Text("Порыв: ")
-                        .font(.system(size: 16, weight: .regular, design: .default))
-                        .foregroundColor(.white)
-                    + Text("\(Int(viewModel.output.model.windGust ?? 0)) м/с")
-                        .font(.system(size: 20, weight: .semibold, design: .default))
-                        .foregroundColor(.white)
+                    textForWind(title: "Влажность: ", value: relHumidity ?? 0, unitMeas: "%")
+                    textForWind(title: "Скорость: ", value: relHumidity ?? 0, unitMeas: "м/с")
+                    textForWind(title: "Направление: ", value: relHumidity ?? 0, unitMeas: "°")
+                    textForWind(title: "Порыв: ", value: relHumidity ?? 0, unitMeas: "м/с")
                 }
                 Spacer()
             }
@@ -59,6 +39,21 @@ struct WindView: View {
         .padding()
         .background(Color("panelInfoColor"))
         .cornerRadius(25)
+    }
+}
+
+private extension WindView {
+    @ViewBuilder
+    func textForWind(title: String, value: Double, unitMeas: String) -> some View {
+        Text(title)
+            .font(.system(size: 16, weight: .regular, design: .default))
+            .foregroundColor(.white)
+        + Text("\(Int(value))")
+            .font(.system(size: 20, weight: .semibold, design: .default))
+            .foregroundColor(.white)
+        + Text(unitMeas)
+            .font(.system(size: 20, weight: .semibold, design: .default))
+            .foregroundColor(.white)
     }
 }
 

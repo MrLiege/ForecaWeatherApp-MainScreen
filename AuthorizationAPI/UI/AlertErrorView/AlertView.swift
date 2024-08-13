@@ -10,7 +10,6 @@ import SwiftUI
 struct AlertView: View {
     var message: String
     var retry: VoidAction
-    var dismiss: VoidAction
     
     var body: some View {
         VStack {
@@ -23,7 +22,6 @@ struct AlertView: View {
                 .padding()
             
             Button(action: {
-                dismiss()
                 retry()
             }) {
                 Text("OK")
@@ -46,8 +44,5 @@ struct AlertView: View {
 #Preview {
     AlertView(message: "Ошибка") {
         print("Retry")
-    } dismiss: {
-        print("Dismoss")
     }
-
 }
