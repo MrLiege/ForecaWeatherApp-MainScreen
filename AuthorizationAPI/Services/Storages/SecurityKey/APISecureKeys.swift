@@ -8,6 +8,6 @@
 import Foundation
 
 enum APISecureKeys {
-    static let login = "mister-8951"
-    static let password = "ltWI2yzGGTCX"
+    static let login = "bailey-6"
+    static let password = "fp2UbTQNfnzk"
 }

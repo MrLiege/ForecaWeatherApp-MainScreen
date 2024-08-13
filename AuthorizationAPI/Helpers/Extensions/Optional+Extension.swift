@@ -11,4 +11,9 @@ extension Optional where Wrapped == String {
     var orEmpty: String {
         self ?? ""
     }
+    
+    var isNotNilOrEmpty: Bool {
+        guard let self else { return false }
+        return !self.isEmpty
+    }
 }
