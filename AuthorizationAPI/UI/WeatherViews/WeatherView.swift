@@ -21,7 +21,7 @@ struct WeatherView: View {
             
             Text("\(viewModel.output.model.temperature)°")
                 .font(.system(size: 70, weight: .medium))
-                .foregroundColor(.accentColor)
+                .foregroundColor(.white)
                 .padding()
             
             //MARK: Views with info

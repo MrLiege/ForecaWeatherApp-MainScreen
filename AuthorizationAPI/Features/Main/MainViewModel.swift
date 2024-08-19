@@ -74,7 +74,9 @@ private extension MainViewModel {
         //MARK: - IF you have token
         input.onAppear
             .filter { self.userStorage.token.isNotNilOrEmpty }
+            .first()
             .sink { [weak self] in
+                print("Токен найден: \(String(describing: self?.userStorage.token))")
                 self?.onAuthComplete.send()
             }
             .store(in: &cancellables)
@@ -83,7 +85,8 @@ private extension MainViewModel {
         //MARK: - But if you don't have token ...
             .filter { !self.userStorage.token.isNotNilOrEmpty }
             .map { [unowned self] in
-                self.authService.postToken()
+                print("Токен не найден, получим его:")
+                return self.authService.postToken()
                     .materialize()
             }
             .switchToLatest()
@@ -97,6 +100,7 @@ private extension MainViewModel {
         
         request.values()
             .sink { [weak self] value in
+                print("Получен токен: \(value.accessToken)")
                 self?.userStorage.token = value.accessToken
                 self?.onAuthComplete.send()
             }

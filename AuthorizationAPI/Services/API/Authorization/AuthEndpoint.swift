@@ -34,8 +34,11 @@ enum AuthEndpoint: TargetType {
         var params = [String : Any]()
         params["user"] = APISecureKeys.login
         params["password"] = APISecureKeys.password
-        return .requestCompositeParameters(bodyParameters: params, bodyEncoding: JSONEncoding.default, 
-                                           urlParameters: ["expire_hours" : -1])
+        return .requestCompositeParameters(
+            bodyParameters: params,
+            bodyEncoding: JSONEncoding.default,
+            urlParameters: ["expire_hours" : 1]
+        )
     }
     
     //MARK: - Headers
