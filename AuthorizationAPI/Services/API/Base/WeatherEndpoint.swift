@@ -35,7 +35,8 @@ enum WeatherEndpoint: TargetType {
     
     var task: Moya.Task {
         .requestParameters(
-            parameters: ["lang" : UserStorage.shared.responseLanguage.rawValue],
+            parameters: ["lang" : UserStorage.shared.responseLanguage.rawValue,
+                         "tempunit" : UserStorage.shared.temperatureUnit],
             encoding: URLEncoding.default
         )
     }

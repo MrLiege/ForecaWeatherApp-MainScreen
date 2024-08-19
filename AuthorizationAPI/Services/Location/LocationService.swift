@@ -16,6 +16,7 @@ protocol LocationServiceProtocol {
 
 final class LocationService: NSObject, LocationServiceProtocol {
     let currentLocation = CurrentValueSubject<CLLocationCoordinate2D?, Never>(nil)
+    
     private let locationManager = CLLocationManager()
     
     override init() {

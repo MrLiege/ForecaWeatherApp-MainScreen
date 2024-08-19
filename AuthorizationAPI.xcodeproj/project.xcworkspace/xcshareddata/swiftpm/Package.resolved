@@ -1,5 +1,5 @@
 {
-  "originHash" : "4042f8e3c0c86c0867bf1340f35ff2739d60f00db827a9084341de02234d7cda",
+  "originHash" : "db7e7cdb951c518ce1a00ba03d4772a9dab5a2504aeed0d475e257a3bc57df7b",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -44,6 +44,15 @@
       "state" : {
         "revision" : "b06a8c8596e4c3e8e7788e08e720e3248563ce6a",
         "version" : "6.7.1"
+      }
+    },
+    {
+      "identity" : "stinsen",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rundfunk47/stinsen.git",
+      "state" : {
+        "revision" : "91ddedb7d86c7d3aa2d0dd281f1113ebae256324",
+        "version" : "2.0.13"
       }
     }
   ],

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeatherView: View {
     @ObservedObject var viewModel: MainViewModel
+    var accentColor: Color?
     
     var body: some View {
         VStack {
@@ -20,9 +21,10 @@ struct WeatherView: View {
             
             Text("\(viewModel.output.model.temperature)°")
                 .font(.system(size: 70, weight: .medium))
-                .foregroundColor(.white)
+                .foregroundColor(.accentColor)
                 .padding()
             
+            //MARK: Views with info
             Group {
                 TempView(feelsLikeTemp: viewModel.output.model.feelsLikeTemp, 
                          symbolPhrase: viewModel.output.model.symbolPhrase)
@@ -33,18 +35,42 @@ struct WeatherView: View {
                          windGust: viewModel.output.model.windGust)
             }
             .padding()
-            .background(Color("panelInfoColor"))
+            .background(Color.panelInfoColor)
             .cornerRadius(25)
+            
             Spacer()
+            
+            //MARK: Buttons (Screen cities and Screen settings)
+            HStack {
+                Button(send: viewModel.input.onCityTap) {
+                    Image(systemName: "mappin.circle")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                }
+                .buttonStyle(CustomButtonStyle())
+
+                Button(send: viewModel.input.onSettingTap) {
+                    Image(systemName: "gearshape")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                }
+                .buttonStyle(CustomButtonStyle())
+            }
+            .padding()
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal)
-        .background {
-            Color(.systemBlue).ignoresSafeArea()
-        }
+        .background(backgroundWeatherView)
     }
 }
 
-//#Preview {
-//    WeatherView()
-//}
+extension WeatherView {
+    @ViewBuilder
+    private var backgroundWeatherView: some View {
+        if let accentColor = accentColor {
+            accentColor.ignoresSafeArea()
+        } else {
+            LinearGradient.skyGradient().ignoresSafeArea()
+        }
+    }
+}

@@ -27,6 +27,10 @@
 		0C12A1162C6A9D0F004E987E /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C12A1152C6A9D0F004E987E /* AlertView.swift */; };
 		0C12A11B2C6B521C004E987E /* Gradient+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C12A11A2C6B521C004E987E /* Gradient+Ext.swift */; };
 		0C12A11D2C6B57BC004E987E /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C12A11C2C6B57BC004E987E /* Color+Ext.swift */; };
+		0C12A2372C70ABF3004E987E /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C12A2362C70ABF3004E987E /* DependencyContainer.swift */; };
+		0C12A23B2C70AC4C004E987E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C12A23A2C70AC4B004E987E /* MainCoordinator.swift */; };
+		0C12A23E2C70AC95004E987E /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = 0C12A23D2C70AC95004E987E /* Stinsen */; };
+		0C12A2402C70ACE8004E987E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C12A23F2C70ACE8004E987E /* AppDelegate.swift */; };
 		0C50F9732C64D86300E6090F /* AuthorizationAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C50F9722C64D86300E6090F /* AuthorizationAPIApp.swift */; };
 		0C50F9752C64D86300E6090F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C50F9742C64D86300E6090F /* MainView.swift */; };
 		0C50F9772C64D86400E6090F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C50F9762C64D86400E6090F /* Assets.xcassets */; };
@@ -42,6 +46,22 @@
 		0C50F9A92C65059300E6090F /* TokenMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C50F9A82C65059300E6090F /* TokenMapper.swift */; };
 		0C50F9AC2C65069100E6090F /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C50F9AB2C65069100E6090F /* Optional+Extension.swift */; };
 		0C50F9AF2C65129B00E6090F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C50F9AE2C65129B00E6090F /* MainViewModel.swift */; };
+		0CBC415C2C70B5650085D052 /* CitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC415B2C70B5650085D052 /* CitiesView.swift */; };
+		0CBC415E2C70B5A40085D052 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC415D2C70B5A40085D052 /* CitiesViewModel.swift */; };
+		0CBC41602C70CB240085D052 /* CitiesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC415F2C70CB240085D052 /* CitiesRouter.swift */; };
+		0CBC41632C70CCBB0085D052 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC41622C70CCBB0085D052 /* City.swift */; };
+		0CBC41662C70D4F20085D052 /* CityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC41652C70D4F20085D052 /* CityCellView.swift */; };
+		0CBC41692C70DC350085D052 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC41682C70DC350085D052 /* SettingsView.swift */; };
+		0CBC416B2C70DC450085D052 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC416A2C70DC450085D052 /* SettingsViewModel.swift */; };
+		0CBC416D2C70DC580085D052 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC416C2C70DC580085D052 /* SettingsRouter.swift */; };
+		0CBC416F2C70DF190085D052 /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC416E2C70DF190085D052 /* MainViewRouter.swift */; };
+		0CBC41752C70F6030085D052 /* Button+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC41742C70F6030085D052 /* Button+Ext.swift */; };
+		0CBC41772C70F7490085D052 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC41762C70F7490085D052 /* ButtonStyle.swift */; };
+		0CBC41792C7120140085D052 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC41782C7120140085D052 /* SearchBar.swift */; };
+		0CBC417E2C7125C10085D052 /* SettingFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC417D2C7125C10085D052 /* SettingFormView.swift */; };
+		0CBC41832C714FDF0085D052 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC41822C714FDF0085D052 /* SoundEffect.swift */; };
+		0CBC41852C7152CB0085D052 /* CloseEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CBC41842C7152CB0085D052 /* CloseEffect.mp3 */; };
+		0CBC41872C7152D40085D052 /* OpenEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0CBC41862C7152D40085D052 /* OpenEffect.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +80,9 @@
 		0C12A1152C6A9D0F004E987E /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		0C12A11A2C6B521C004E987E /* Gradient+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Ext.swift"; sourceTree = "<group>"; };
 		0C12A11C2C6B57BC004E987E /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		0C12A2362C70ABF3004E987E /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		0C12A23A2C70AC4B004E987E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		0C12A23F2C70ACE8004E987E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C50F96F2C64D86300E6090F /* AuthorizationAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthorizationAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C50F9722C64D86300E6090F /* AuthorizationAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationAPIApp.swift; sourceTree = "<group>"; };
 		0C50F9742C64D86300E6090F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -76,6 +99,22 @@
 		0C50F9A82C65059300E6090F /* TokenMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMapper.swift; sourceTree = "<group>"; };
 		0C50F9AB2C65069100E6090F /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		0C50F9AE2C65129B00E6090F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		0CBC415B2C70B5650085D052 /* CitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesView.swift; sourceTree = "<group>"; };
+		0CBC415D2C70B5A40085D052 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
+		0CBC415F2C70CB240085D052 /* CitiesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesRouter.swift; sourceTree = "<group>"; };
+		0CBC41622C70CCBB0085D052 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		0CBC41652C70D4F20085D052 /* CityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCellView.swift; sourceTree = "<group>"; };
+		0CBC41682C70DC350085D052 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0CBC416A2C70DC450085D052 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		0CBC416C2C70DC580085D052 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		0CBC416E2C70DF190085D052 /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
+		0CBC41742C70F6030085D052 /* Button+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Ext.swift"; sourceTree = "<group>"; };
+		0CBC41762C70F7490085D052 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		0CBC41782C7120140085D052 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		0CBC417D2C7125C10085D052 /* SettingFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFormView.swift; sourceTree = "<group>"; };
+		0CBC41822C714FDF0085D052 /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
+		0CBC41842C7152CB0085D052 /* CloseEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = CloseEffect.mp3; path = ../../../../../../../../Downloads/CloseEffect.mp3; sourceTree = "<group>"; };
+		0CBC41862C7152D40085D052 /* OpenEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = OpenEffect.mp3; path = ../../../../../../../../Downloads/OpenEffect.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +125,7 @@
 				0C08912D2C675ECB00981A3D /* Moya in Frameworks */,
 				0C08912B2C675ECB00981A3D /* CombineMoya in Frameworks */,
 				0C0891312C675ECB00981A3D /* RxMoya in Frameworks */,
+				0C12A23E2C70AC95004E987E /* Stinsen in Frameworks */,
 				0C0891342C675ED300981A3D /* CombineExt in Frameworks */,
 				0C08912F2C675ECB00981A3D /* ReactiveMoya in Frameworks */,
 			);
@@ -99,6 +139,7 @@
 			children = (
 				0C50F9AA2C65065600E6090F /* Extensions */,
 				0C0891532C68AB1C00981A3D /* Typealiases.swift */,
+				0CBC41762C70F7490085D052 /* ButtonStyle.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -123,6 +164,9 @@
 		0C0891582C68CAE000981A3D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0CBC417C2C7123CC0085D052 /* SettingView */,
+				0CBC41642C70D4DC0085D052 /* CityView */,
+				0CBC417A2C71201B0085D052 /* SearchBar */,
 				0C12A1132C6A9CE9004E987E /* AlertErrorView */,
 				0C0891612C6A075C00981A3D /* WeatherViews */,
 				0C0891592C68CAF600981A3D /* LoadableView */,
@@ -165,6 +209,22 @@
 			path = AlertErrorView;
 			sourceTree = "<group>";
 		};
+		0C12A2342C70ABC1004E987E /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0C12A23A2C70AC4B004E987E /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		0C12A2352C70ABE5004E987E /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				0C12A2362C70ABF3004E987E /* DependencyContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		0C50F9662C64D86300E6090F = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +248,7 @@
 				0C50F98D2C64D91500E6090F /* Recources */,
 				0C50F9902C64D96B00E6090F /* Models */,
 				0C50F9912C64D9AB00E6090F /* Services */,
+				0C12A2342C70ABC1004E987E /* Coordinators */,
 				0C50F98E2C64D93A00E6090F /* Features */,
 				0C0891582C68CAE000981A3D /* UI */,
 				0C0891482C67957B00981A3D /* Helpers */,
@@ -208,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				0C50F9722C64D86300E6090F /* AuthorizationAPIApp.swift */,
+				0C12A23F2C70ACE8004E987E /* AppDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -215,6 +277,8 @@
 		0C50F98D2C64D91500E6090F /* Recources */ = {
 			isa = PBXGroup;
 			children = (
+				0CBC41862C7152D40085D052 /* OpenEffect.mp3 */,
+				0CBC41842C7152CB0085D052 /* CloseEffect.mp3 */,
 				0C50F9762C64D86400E6090F /* Assets.xcassets */,
 			);
 			path = Recources;
@@ -223,6 +287,8 @@
 		0C50F98E2C64D93A00E6090F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0CBC41672C70DC240085D052 /* Settings */,
+				0CBC415A2C70B52C0085D052 /* Cities */,
 				0C50F98F2C64D94000E6090F /* Main */,
 			);
 			path = Features;
@@ -233,6 +299,7 @@
 			children = (
 				0C50F9742C64D86300E6090F /* MainView.swift */,
 				0C50F9AE2C65129B00E6090F /* MainViewModel.swift */,
+				0CBC416E2C70DF190085D052 /* MainViewRouter.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -250,6 +317,8 @@
 		0C50F9912C64D9AB00E6090F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0CBC41812C714FD10085D052 /* SoundEffect */,
+				0C12A2352C70ABE5004E987E /* DI */,
 				0C50F9922C64E36400E6090F /* Storages */,
 				0C50F9952C64E69D00E6090F /* API */,
 				0C08915E2C694C7F00981A3D /* Location */,
@@ -288,6 +357,7 @@
 		0C50F99F2C64F5E600E6090F /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				0CBC41612C70CCA60085D052 /* Cities */,
 				0C50F9A42C64F63C00E6090F /* Token.swift */,
 				0C08914C2C67B4E600981A3D /* ResponseLanguage.swift */,
 				0C08914E2C67B51700981A3D /* CurrentWeather.swift */,
@@ -319,6 +389,7 @@
 				0C50F9AB2C65069100E6090F /* Optional+Extension.swift */,
 				0C12A11A2C6B521C004E987E /* Gradient+Ext.swift */,
 				0C12A11C2C6B57BC004E987E /* Color+Ext.swift */,
+				0CBC41742C70F6030085D052 /* Button+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,6 +426,66 @@
 			path = TokenMapper;
 			sourceTree = "<group>";
 		};
+		0CBC415A2C70B52C0085D052 /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				0CBC415B2C70B5650085D052 /* CitiesView.swift */,
+				0CBC415D2C70B5A40085D052 /* CitiesViewModel.swift */,
+				0CBC415F2C70CB240085D052 /* CitiesRouter.swift */,
+			);
+			path = Cities;
+			sourceTree = "<group>";
+		};
+		0CBC41612C70CCA60085D052 /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				0CBC41622C70CCBB0085D052 /* City.swift */,
+			);
+			path = Cities;
+			sourceTree = "<group>";
+		};
+		0CBC41642C70D4DC0085D052 /* CityView */ = {
+			isa = PBXGroup;
+			children = (
+				0CBC41652C70D4F20085D052 /* CityCellView.swift */,
+			);
+			path = CityView;
+			sourceTree = "<group>";
+		};
+		0CBC41672C70DC240085D052 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0CBC41682C70DC350085D052 /* SettingsView.swift */,
+				0CBC416A2C70DC450085D052 /* SettingsViewModel.swift */,
+				0CBC416C2C70DC580085D052 /* SettingsRouter.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0CBC417A2C71201B0085D052 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				0CBC41782C7120140085D052 /* SearchBar.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		0CBC417C2C7123CC0085D052 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				0CBC417D2C7125C10085D052 /* SettingFormView.swift */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
+		0CBC41812C714FD10085D052 /* SoundEffect */ = {
+			isa = PBXGroup;
+			children = (
+				0CBC41822C714FDF0085D052 /* SoundEffect.swift */,
+			);
+			path = SoundEffect;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -377,6 +508,7 @@
 				0C08912E2C675ECB00981A3D /* ReactiveMoya */,
 				0C0891302C675ECB00981A3D /* RxMoya */,
 				0C0891332C675ED300981A3D /* CombineExt */,
+				0C12A23D2C70AC95004E987E /* Stinsen */,
 			);
 			productName = AuthorizationAPI;
 			productReference = 0C50F96F2C64D86300E6090F /* AuthorizationAPI.app */;
@@ -409,6 +541,7 @@
 			packageReferences = (
 				0C0891292C675ECB00981A3D /* XCRemoteSwiftPackageReference "Moya" */,
 				0C0891322C675ED300981A3D /* XCRemoteSwiftPackageReference "CombineExt" */,
+				0C12A23C2C70AC94004E987E /* XCRemoteSwiftPackageReference "stinsen" */,
 			);
 			productRefGroup = 0C50F9702C64D86300E6090F /* Products */;
 			projectDirPath = "";
@@ -424,7 +557,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CBC41852C7152CB0085D052 /* CloseEffect.mp3 in Resources */,
 				0C50F97A2C64D86400E6090F /* Preview Assets.xcassets in Resources */,
+				0CBC41872C7152D40085D052 /* OpenEffect.mp3 in Resources */,
 				0C50F9772C64D86400E6090F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,33 +571,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CBC416F2C70DF190085D052 /* MainViewRouter.swift in Sources */,
+				0C12A2372C70ABF3004E987E /* DependencyContainer.swift in Sources */,
 				0C50F9A52C64F63C00E6090F /* Token.swift in Sources */,
 				0C12A11D2C6B57BC004E987E /* Color+Ext.swift in Sources */,
 				0C50F9AC2C65069100E6090F /* Optional+Extension.swift in Sources */,
 				0C08914F2C67B51700981A3D /* CurrentWeather.swift in Sources */,
+				0CBC416B2C70DC450085D052 /* SettingsViewModel.swift in Sources */,
+				0CBC41662C70D4F20085D052 /* CityCellView.swift in Sources */,
+				0CBC41692C70DC350085D052 /* SettingsView.swift in Sources */,
 				0C50F9A72C64F8E800E6090F /* BaseModelMapper.swift in Sources */,
+				0CBC41632C70CCBB0085D052 /* City.swift in Sources */,
 				0C50F9982C64E6DB00E6090F /* AuthEndpoint.swift in Sources */,
+				0CBC415C2C70B5650085D052 /* CitiesView.swift in Sources */,
 				0C0891522C67C53A00981A3D /* WeatherEndpoint.swift in Sources */,
 				0C0891602C694C9B00981A3D /* LocationService.swift in Sources */,
 				0C0891572C68ABFB00981A3D /* WeatherAPI.swift in Sources */,
 				0C50F9752C64D86300E6090F /* MainView.swift in Sources */,
+				0CBC41832C714FDF0085D052 /* SoundEffect.swift in Sources */,
 				0C50F9AF2C65129B00E6090F /* MainViewModel.swift in Sources */,
 				0C08914B2C67B4B200981A3D /* ServerCurrentWeatherResponse.swift in Sources */,
+				0C12A23B2C70AC4C004E987E /* MainCoordinator.swift in Sources */,
 				0C50F99E2C64F30500E6090F /* Provider.swift in Sources */,
 				0C0891632C6A084900981A3D /* WeatherView.swift in Sources */,
 				0C50F99C2C64F08700E6090F /* AuthAPIService.swift in Sources */,
 				0C08915D2C68CB7500981A3D /* LoadableView.swift in Sources */,
 				0C50F9A32C64F63300E6090F /* ServerToken.swift in Sources */,
+				0CBC41752C70F6030085D052 /* Button+Ext.swift in Sources */,
 				0C12A11B2C6B521C004E987E /* Gradient+Ext.swift in Sources */,
 				0C50F9732C64D86300E6090F /* AuthorizationAPIApp.swift in Sources */,
 				0C50F99A2C64EDE100E6090F /* APISecureKeys.swift in Sources */,
+				0CBC417E2C7125C10085D052 /* SettingFormView.swift in Sources */,
+				0C12A2402C70ACE8004E987E /* AppDelegate.swift in Sources */,
 				0C12A10C2C6A2328004E987E /* TempView.swift in Sources */,
 				0C0891542C68AB1C00981A3D /* Typealiases.swift in Sources */,
 				0C12A10E2C6A2681004E987E /* WindView.swift in Sources */,
 				0C12A1162C6A9D0F004E987E /* AlertView.swift in Sources */,
 				0C08914D2C67B4E600981A3D /* ResponseLanguage.swift in Sources */,
+				0CBC41602C70CB240085D052 /* CitiesRouter.swift in Sources */,
+				0CBC41772C70F7490085D052 /* ButtonStyle.swift in Sources */,
 				0C50F9942C64E38300E6090F /* UserStorage.swift in Sources */,
 				0C08915B2C68CB0400981A3D /* LoadingProgressView.swift in Sources */,
+				0CBC41792C7120140085D052 /* SearchBar.swift in Sources */,
+				0CBC416D2C70DC580085D052 /* SettingsRouter.swift in Sources */,
+				0CBC415E2C70B5A40085D052 /* CitiesViewModel.swift in Sources */,
 				0C50F9A92C65059300E6090F /* TokenMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -701,6 +853,14 @@
 				minimumVersion = 1.8.1;
 			};
 		};
+		0C12A23C2C70AC94004E987E /* XCRemoteSwiftPackageReference "stinsen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rundfunk47/stinsen.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.13;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -728,6 +888,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0C0891322C675ED300981A3D /* XCRemoteSwiftPackageReference "CombineExt" */;
 			productName = CombineExt;
+		};
+		0C12A23D2C70AC95004E987E /* Stinsen */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C12A23C2C70AC94004E987E /* XCRemoteSwiftPackageReference "stinsen" */;
+			productName = Stinsen;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
