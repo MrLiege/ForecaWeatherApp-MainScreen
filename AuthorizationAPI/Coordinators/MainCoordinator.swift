@@ -24,7 +24,6 @@ final class MainCoordinator: NavigationCoordinatable {
     @Injected private var weatherService: WeatherAPIService
     
     private let citySelected = CurrentValueSubject<City?, Never>(nil)
-    private let onSettingsClose = PassthroughSubject<Void, Never>()
     private let tempUnitChanged = PassthroughSubject<String, Never>()
 }
 
@@ -35,7 +34,6 @@ private extension MainCoordinator {
                                       authService: authService,
                                       weatherService: weatherService,
                                       locationService: locationService,
-                                      onSettingsClose: onSettingsClose, 
                                       tempUnitChanged: tempUnitChanged, router: self)
         
         MainView(viewModel: viewModel)
@@ -52,8 +50,9 @@ private extension MainCoordinator {
     
     @ViewBuilder
     func makeSettings() -> some View {
-        let viewModel = SettingsViewModel(router: self,
-                                          onSettingsClose: onSettingsClose, tempUnitChanged: tempUnitChanged)
+        let viewModel = SettingsViewModel(tempUnitChanged: tempUnitChanged,
+                                          router: self)
+        
         SettingsView(viewModel: viewModel)
     }
 }

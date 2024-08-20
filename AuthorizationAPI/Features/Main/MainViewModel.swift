@@ -27,7 +27,6 @@ final class MainViewModel: ObservableObject {
     
     // MARK: External
     private let citySelected: CurrentValueSubject<City?, Never>
-    private let onSettingsClose: PassthroughSubject<Void, Never>
     private let tempUnitChanged: PassthroughSubject<String, Never>
     
     // MARK: Initialization
@@ -36,7 +35,6 @@ final class MainViewModel: ObservableObject {
          authService: AuthAPIServiceProtocol = AuthAPIService(),
          weatherService: WeatherAPIService = WeatherAPIService(),
          locationService: LocationServiceProtocol = LocationService(),
-         onSettingsClose: PassthroughSubject<Void, Never>,
          tempUnitChanged: PassthroughSubject<String, Never>,
          router: MainViewRouter?) {
         
@@ -47,7 +45,6 @@ final class MainViewModel: ObservableObject {
         self.authService = authService
         self.weatherService = weatherService
         self.locationService = locationService
-        self.onSettingsClose = onSettingsClose
         self.tempUnitChanged = tempUnitChanged
         self.router = router
         bind()
@@ -65,7 +62,6 @@ private extension MainViewModel {
         bindWeather()
         bindTransition()
         bindAccentColor()
-        bindSettingsClose()
         bindTempUnitChanged()
         bindSoundEnabled()
     }
@@ -136,16 +132,6 @@ private extension MainViewModel {
         weatherRequest.failures()
             .sink { [weak self] error in
                 self?.output.contentState = .error(message: error.localizedDescription)
-            }
-            .store(in: &cancellables)
-    }
-    
-    private func bindSettingsClose() {
-        onSettingsClose
-        
-            .sink { [weak self] in
-                self?.input.onAppear.send()
-                self?.onAuthComplete.send()
             }
             .store(in: &cancellables)
     }
@@ -243,7 +229,6 @@ extension MainViewModel {
         let onAppear = PassthroughSubject<Void, Never>()
         let onCityTap = PassthroughSubject<Void, Never>()
         let onSettingTap = PassthroughSubject<Void, Never>()
-        let onSettingsClose = PassthroughSubject<Void, Never>()
     }
     
     struct Output {

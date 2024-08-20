@@ -12,6 +12,10 @@ struct City: Identifiable {
     let id = UUID().hashValue
     let name: String
     let coordinate: CLLocationCoordinate2D
+    
+    static func current(location: CLLocationCoordinate2D) -> City {
+        return City(name: "Ваше местоположение", coordinate: location)
+    }
 }
 
 extension City {

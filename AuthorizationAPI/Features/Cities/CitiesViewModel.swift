@@ -62,7 +62,7 @@ private extension CitiesViewModel {
         guard let coordinate = locationService.currentLocation.value else {
             return
         }
-        output.cities.append(City(name: "Ваше местоположение", coordinate: coordinate))
+        output.cities.append(City.current(location: coordinate))
     }
     
     func filterCities(by text: String) {

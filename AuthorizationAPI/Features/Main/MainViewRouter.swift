@@ -15,7 +15,6 @@ protocol MainViewRouter: AnyObject {
 extension MainCoordinator: MainViewRouter {
     func routeToCities() {
         self.route(to: \.cities)
-        print("Это экран с городами")
     }
     
     func routeToSettings() {

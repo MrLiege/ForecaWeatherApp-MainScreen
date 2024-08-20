@@ -18,22 +18,19 @@ final class SettingsViewModel: ObservableObject {
     @Published var soundEnabled: Bool
     
     private var cancellables = Set<AnyCancellable>()
-    private let onSettingsClose: PassthroughSubject<Void, Never>
     private let tempUnitChanged: PassthroughSubject<String, Never>
     private var tempUnitHasChanged = false
     
     private weak var router: SettingsRouter?
     
-    init(router: SettingsRouter?,
-         onSettingsClose: PassthroughSubject<Void, Never>,
-         tempUnitChanged: PassthroughSubject<String, Never>) {
+    init(tempUnitChanged: PassthroughSubject<String, Never>,
+         router: SettingsRouter?) {
         self.input = Input()
         self.output = Output()
         self.router = router
         self.selectedColor = UserStorage.shared.accentColor ?? .white
         self.soundEnabled = UserStorage.shared.soundEnabled
         self.selectedTempUnit = UserStorage.shared.temperatureUnit
-        self.onSettingsClose = onSettingsClose
         self.tempUnitChanged = tempUnitChanged
         
         bind()
@@ -59,7 +56,6 @@ extension SettingsViewModel {
                 if self?.tempUnitHasChanged == true {
                     self?.tempUnitChanged.send(self?.selectedTempUnit ?? "")
                 }
-                self?.onSettingsClose.send()
                 self?.router?.exit()
             }
             .store(in: &cancellables)
