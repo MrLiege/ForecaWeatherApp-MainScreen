@@ -105,7 +105,6 @@ private extension MainViewModel {
     
     func bindWeather() {
         let location = locationService.currentLocation
-            .dropFirst()
             .compactMap { $0 }
         
         let citySelect = citySelected
@@ -179,15 +178,6 @@ private extension MainViewModel {
         UserStorage.shared.$soundEnabled
             .sink { [weak self] soundEnabled in
                 self?.output.soundEnabled = soundEnabled
-            }
-            .store(in: &cancellables)
-    }
-    
-    private func bindTemperatureUnit() {
-        UserStorage.shared.$temperatureUnit
-            .sink { [weak self] _ in
-                self?.onAuthComplete.send()
-                self?.fetchWeather()
             }
             .store(in: &cancellables)
     }

@@ -20,7 +20,7 @@ struct CitiesView: View {
     var body: some View {
         ScrollView {
             VStack {
-                SearchBar(searchText: $viewModel.searchText, isFocus: $isFocus)
+                SearchBar(searchText: $viewModel.output.searchText, isFocus: $isFocus)
                     .padding()
                 ForEach(viewModel.output.cities) { city in
                     CityCellView(city: city)

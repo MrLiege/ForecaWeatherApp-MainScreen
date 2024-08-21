@@ -12,7 +12,6 @@ final class CitiesViewModel: ObservableObject {
     // MARK: - Internal variables
     let input: Input
     @Published var output: Output
-    @Published var searchText: String = ""
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -49,7 +48,8 @@ private extension CitiesViewModel {
             }
             .store(in: &cancellables)
         
-        $searchText
+        $output
+            .map(\.searchText)
             .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
             .removeDuplicates()
             .sink { [weak self] text in
@@ -81,5 +81,6 @@ extension CitiesViewModel {
     
     struct Output {
         var cities: [City] = City.mockCities
+        var searchText: String = ""
     }
 }

@@ -19,8 +19,7 @@ struct MainView: View {
         LoadableView(
             state: viewModel.output.contentState,
             content: {
-                WeatherView(viewModel: viewModel,
-                            accentColor: viewModel.output.accentColor)},
+                WeatherView(viewModel: viewModel)},
             onAppear: {
                 viewModel.input.onAppear.send()},
             retry: {

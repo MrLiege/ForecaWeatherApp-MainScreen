@@ -9,7 +9,6 @@ import SwiftUI
 
 struct WeatherView: View {
     @ObservedObject var viewModel: MainViewModel
-    var accentColor: Color?
     
     var body: some View {
         VStack {
@@ -67,9 +66,13 @@ struct WeatherView: View {
 extension WeatherView {
     @ViewBuilder
     private var backgroundWeatherView: some View {
-        if let accentColor = accentColor {
+        if viewModel.output.accentColor == .white {
+            LinearGradient.skyGradient().ignoresSafeArea()
+        }
+        else if let accentColor = viewModel.output.accentColor {
             accentColor.ignoresSafeArea()
-        } else {
+        }
+        else {
             LinearGradient.skyGradient().ignoresSafeArea()
         }
     }

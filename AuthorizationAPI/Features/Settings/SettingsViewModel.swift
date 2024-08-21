@@ -13,9 +13,6 @@ final class SettingsViewModel: ObservableObject {
     
     let input: Input
     @Published var output: Output
-    @Published var selectedColor: Color
-    @Published var selectedTempUnit: String
-    @Published var soundEnabled: Bool
     
     private var cancellables = Set<AnyCancellable>()
     private let tempUnitChanged: PassthroughSubject<String, Never>
@@ -26,11 +23,10 @@ final class SettingsViewModel: ObservableObject {
     init(tempUnitChanged: PassthroughSubject<String, Never>,
          router: SettingsRouter?) {
         self.input = Input()
-        self.output = Output()
+        self.output = Output(selectedColor: UserStorage.shared.accentColor ?? .white,
+                             soundEnabled: UserStorage.shared.soundEnabled,
+                             selectedTempUnit: UserStorage.shared.temperatureUnit)
         self.router = router
-        self.selectedColor = UserStorage.shared.accentColor ?? .white
-        self.soundEnabled = UserStorage.shared.soundEnabled
-        self.selectedTempUnit = UserStorage.shared.temperatureUnit
         self.tempUnitChanged = tempUnitChanged
         
         bind()
@@ -50,11 +46,11 @@ extension SettingsViewModel {
     func bindExit() {
         input.onExitTap
             .sink { [weak self] in
-                if self?.soundEnabled == true {
+                if self?.output.soundEnabled == true {
                     SoundEffect.shared.playSound(.CloseEffect)
                 }
                 if self?.tempUnitHasChanged == true {
-                    self?.tempUnitChanged.send(self?.selectedTempUnit ?? "")
+                    self?.tempUnitChanged.send(self?.output.selectedTempUnit ?? "")
                 }
                 self?.router?.exit()
             }
@@ -62,7 +58,8 @@ extension SettingsViewModel {
     }
     
     func bindColorPicker() {
-        $selectedColor
+        $output
+            .map(\.selectedColor)
             .sink { color in
                 UserStorage.shared.accentColor = color
             }
@@ -70,7 +67,8 @@ extension SettingsViewModel {
     }
     
     func bindSoundToggle() {
-        $soundEnabled
+        $output
+            .map(\.soundEnabled)
             .sink { soundEnabled in
                 UserStorage.shared.soundEnabled = soundEnabled
             }
@@ -79,7 +77,8 @@ extension SettingsViewModel {
     }
     
     func bindTempUnitPicker() {
-        $selectedTempUnit
+        $output
+            .map(\.selectedTempUnit)
             .sink { [weak self] tempUnit in
                 UserStorage.shared.temperatureUnit = tempUnit
                 self?.tempUnitHasChanged = true
@@ -94,5 +93,9 @@ extension SettingsViewModel {
         
     }
     
-    struct Output { }
+    struct Output {
+        var selectedColor: Color
+        var soundEnabled: Bool
+        var selectedTempUnit: String
+    }
 }

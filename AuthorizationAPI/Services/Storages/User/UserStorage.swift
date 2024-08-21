@@ -24,7 +24,7 @@ final class UserStorage: ObservableObject, UserStorageProtocol {
     private let defaults = UserDefaults.standard
     
     private init() {
-        self.accentColor = defaults.color(forKey: UserStorageKey.accentColor.rawValue) ?? .blue
+        self.accentColor = defaults.color(forKey: UserStorageKey.accentColor.rawValue)
         self.soundEnabled = defaults.bool(forKey: UserStorageKey.soundEnabled.rawValue)
         self.temperatureUnit = defaults.string(forKey: UserStorageKey.temperatureUnit.rawValue) ?? "C"
         self.selectedCity = defaults.city(forKey: UserStorageKey.selectedCity.rawValue)

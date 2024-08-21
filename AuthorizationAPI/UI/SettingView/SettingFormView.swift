@@ -22,13 +22,13 @@ struct SettingFormView: View {
             }
             Form {
                  Section(header: Text("Настройки")) {
-                     ColorPicker("Акцентный цвет", selection: $viewModel.selectedColor)
+                     ColorPicker("Акцентный цвет", selection: $viewModel.output.selectedColor)
                          .padding()
                      
-                     Toggle("Саунд тоггл", isOn: $viewModel.soundEnabled)
+                     Toggle("Саунд тоггл", isOn: $viewModel.output.soundEnabled)
                          .padding()
                      
-                     Picker("Единица измерения температуры", selection: $viewModel.selectedTempUnit) {
+                     Picker("Единица измерения температуры", selection: $viewModel.output.selectedTempUnit) {
                          Text("Цельсий").tag("C")
                          Text("Фаренгейт").tag("F")
                      }
