@@ -9,19 +9,24 @@ import SwiftUI
 
 struct MainView: View {
     
-    @StateObject var viewModel = MainViewModel()
+    @StateObject var viewModel: MainViewModel
+    
+    init(viewModel: MainViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
-        LoadableView(state: viewModel.output.contentState, content: {
-            WeatherView(viewModel: viewModel)
-        }, onAppear: {
-            viewModel.input.onAppear.send(())
-        }, retry: {
-            viewModel.retry()
-        })
+        LoadableView(
+            state: viewModel.output.contentState,
+            content: {
+                WeatherView(viewModel: viewModel)},
+            onAppear: {
+                viewModel.input.onAppear.send()},
+            retry: {
+                viewModel.retry()
+            }
+        )
+        .navigationBarHidden(true)
+        
     }
-}
-
-#Preview {
-    MainView()
 }

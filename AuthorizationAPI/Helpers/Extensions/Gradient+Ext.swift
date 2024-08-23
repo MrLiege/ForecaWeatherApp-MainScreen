@@ -15,4 +15,18 @@ extension LinearGradient {
             startPoint: .topLeading,
             endPoint: .bottomTrailing)
     }
+    
+    static func darkSkyGradient() -> LinearGradient {
+        return LinearGradient(
+            gradient: Gradient(colors: [Color.black, Color(.systemBlue)]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing)
+    }
+    
+    static func dimSkyGradient() -> LinearGradient {
+        return LinearGradient(
+            gradient: Gradient(colors: [Color.pink, Color(.systemBlue)]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing)
+    }
 }

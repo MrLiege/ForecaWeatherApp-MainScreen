@@ -15,7 +15,8 @@ protocol LocationServiceProtocol {
 }
 
 final class LocationService: NSObject, LocationServiceProtocol {
-    let currentLocation = CurrentValueSubject<CLLocationCoordinate2D?, Never>(nil)
+    var currentLocation = CurrentValueSubject<CLLocationCoordinate2D?, Never>(nil)
+    
     private let locationManager = CLLocationManager()
     
     override init() {
@@ -32,6 +33,7 @@ final class LocationService: NSObject, LocationServiceProtocol {
 extension LocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let sortedLocations = locations.sorted { $0.horizontalAccuracy < $1.horizontalAccuracy }
+        print(sortedLocations)
         if let location = sortedLocations.first {
             currentLocation.send(location.coordinate)
         }

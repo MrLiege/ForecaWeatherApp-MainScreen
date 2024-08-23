@@ -37,7 +37,7 @@ struct WindView: View {
             }
         }
         .padding()
-        .background(Color("panelInfoColor"))
+        .background(Color.panelInfoColor)
         .cornerRadius(25)
     }
 }
