@@ -36,6 +36,7 @@ private extension MainCoordinator {
                                       locationService: locationService,
                                       tempUnitChanged: tempUnitChanged, router: self)
         
+        
         MainView(viewModel: viewModel)
     }
     
@@ -54,15 +55,5 @@ private extension MainCoordinator {
                                           router: self)
         
         SettingsView(viewModel: viewModel)
-    }
-}
-
-final class BaseCoordinator: NavigationCoordinatable {
-    var stack = Stinsen.NavigationStack<BaseCoordinator>(initial: \.start)
-    
-    @Root var start = makeMain
-    
-    private func makeMain() -> NavigationViewCoordinator<MainCoordinator> {
-        NavigationViewCoordinator(MainCoordinator())
     }
 }
