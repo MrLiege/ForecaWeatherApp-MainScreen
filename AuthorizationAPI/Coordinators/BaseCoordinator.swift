@@ -17,19 +17,26 @@ final class BaseCoordinator: NavigationCoordinatable {
     @Root var auth = makeAuth
     @Root var start = makeMain
     @Root var onboarding = makeOnboarding
+    @Root var update = makeUpdade
     
     @Injected private var authService: Authenticatable
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        switch UserStorage.shared.appState {
-        case .auth:
-            stack = .init(initial: \.auth)
-        case .onboarding:
-            stack = .init(initial: \.onboarding)
-        case .main:
-            stack = .init(initial: \.start)
+        stack = .init(initial: \.auth)
+        
+        if updatingScreen() {
+            stack = .init(initial: \.update)
+        } else {
+            switch UserStorage.shared.appState {
+            case .auth:
+                stack = .init(initial: \.auth)
+            case .onboarding:
+                stack = .init(initial: \.onboarding)
+            case .main:
+                stack = .init(initial: \.start)
+            }
         }
         
         bindAuthState()
@@ -46,9 +53,17 @@ final class BaseCoordinator: NavigationCoordinatable {
     func makeOnboarding() -> NavigationViewCoordinator<OnboardingCoordinator> {
         NavigationViewCoordinator(OnboardingCoordinator(authService: authService))
     }
+    
+    func makeUpdade() -> NavigationViewCoordinator<UpdateCoordinator> {
+        NavigationViewCoordinator(UpdateCoordinator())
+    }
 }
 
 extension BaseCoordinator {
+    func updatingScreen() -> Bool {
+        return Bool.random()
+    }
+    
     func bindAuthState() {
         authService.authCompleted
             .sink { [weak self] state in

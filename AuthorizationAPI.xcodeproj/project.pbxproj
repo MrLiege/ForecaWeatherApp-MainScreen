@@ -74,6 +74,7 @@
 		0CD87C7D2C7CC4D200AD76AC /* UpdateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87C7C2C7CC4D200AD76AC /* UpdateScreen.swift */; };
 		0CD87C7F2C7DBEA000AD76AC /* VIew+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87C7E2C7DBEA000AD76AC /* VIew+Ext.swift */; };
 		0CD87C812C7DC65200AD76AC /* Text+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87C802C7DC65200AD76AC /* Text+Ext.swift */; };
+		0CD87C832C7DEF5A00AD76AC /* UpdateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87C822C7DEF5A00AD76AC /* UpdateCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +140,7 @@
 		0CD87C7C2C7CC4D200AD76AC /* UpdateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateScreen.swift; sourceTree = "<group>"; };
 		0CD87C7E2C7DBEA000AD76AC /* VIew+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VIew+Ext.swift"; sourceTree = "<group>"; };
 		0CD87C802C7DC65200AD76AC /* Text+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Ext.swift"; sourceTree = "<group>"; };
+		0CD87C822C7DEF5A00AD76AC /* UpdateCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 				0C12A23A2C70AC4B004E987E /* MainCoordinator.swift */,
 				0C32366C2C776FBB006449F9 /* OnboardingCoordinator.swift */,
 				0C32366E2C776FC9006449F9 /* BaseCoordinator.swift */,
+				0CD87C822C7DEF5A00AD76AC /* UpdateCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				0C08914D2C67B4E600981A3D /* ResponseLanguage.swift in Sources */,
 				0CBC41602C70CB240085D052 /* CitiesRouter.swift in Sources */,
 				0CBC41772C70F7490085D052 /* ButtonStyle.swift in Sources */,
+				0CD87C832C7DEF5A00AD76AC /* UpdateCoordinator.swift in Sources */,
 				0C50F9942C64E38300E6090F /* UserStorage.swift in Sources */,
 				0CD87C682C7B389000AD76AC /* SignIn.swift in Sources */,
 				0C08915B2C68CB0400981A3D /* LoadingProgressView.swift in Sources */,

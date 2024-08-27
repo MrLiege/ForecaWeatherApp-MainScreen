@@ -22,6 +22,18 @@ struct LoadableView<Content: View>: View {
     let onAppear: VoidAction
     let retry: VoidAction
     
+    init(
+        state: LoadableViewState,
+        content: @escaping () -> Content,
+        onAppear: @escaping VoidAction = {},
+        retry: @escaping VoidAction = {}
+    ) {
+        self.state = state
+        self.content = content
+        self.onAppear = onAppear
+        self.retry = retry
+    }
+    
     var body: some View {
         ZStack {
             Group {

@@ -72,8 +72,6 @@ private extension MainViewModel {
     }
     
     func bindWeather() {
-        output.contentState = .loading
-        
         let location = locationService.currentLocation
             .compactMap { $0 }
         
@@ -81,6 +79,9 @@ private extension MainViewModel {
             .compactMap { $0?.coordinate }
         
         let weatherRequest = location.merge(with: citySelect)
+            .handleEvents(receiveOutput: { [weak self] _ in
+                self?.output.contentState = .loading
+            })
             .map { [unowned self] in
                 self.weatherService.getCurrentWeather(location: $0)
                     .materialize()

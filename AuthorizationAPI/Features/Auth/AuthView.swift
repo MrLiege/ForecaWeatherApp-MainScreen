@@ -16,13 +16,6 @@ struct AuthView: View {
     }
     
     var body: some View {
-        LoadableView(state: viewModel.output.contentState) {
-            SignIn(viewModel: viewModel)
-        } onAppear: {
-            
-        } retry: {
-            
-        }
-        .navigationBarHidden(true)
+        SignIn(viewModel: viewModel)
     }
 }
