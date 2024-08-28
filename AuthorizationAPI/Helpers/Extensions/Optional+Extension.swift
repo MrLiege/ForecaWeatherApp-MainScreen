@@ -17,3 +17,20 @@ extension Optional where Wrapped == String {
         return !self.isEmpty
     }
 }
+
+extension Optional {
+    var isNil: Bool { self == nil }
+    var isNotNil: Bool { self != nil }
+}
+
+extension Optional where Wrapped == Date {
+    var orNow: Date {
+        self ?? .now
+    }
+}
+
+extension Optional where Wrapped == Double {
+    var orZero: Double {
+        self ?? .zero
+    }
+}

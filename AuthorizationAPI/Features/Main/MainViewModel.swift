@@ -58,47 +58,15 @@ final class MainViewModel: ObservableObject {
 
 private extension MainViewModel {
     func bind() {
-        bindAuth()
         bindWeather()
         bindTransition()
         bindAccentColor()
         bindTempUnitChanged()
         bindSoundEnabled()
-    }
-    
-    func bindAuth() {
-        //MARK: - IF you have token
+        
         input.onAppear
-            .filter { self.userStorage.token.isNotNilOrEmpty }
-            .first()
             .sink { [weak self] in
-                print("Токен найден: \(String(describing: self?.userStorage.token))")
-                self?.onAuthComplete.send()
-            }
-            .store(in: &cancellables)
-        
-        let request = input.onAppear
-        //MARK: - But if you don't have token ...
-            .filter { !self.userStorage.token.isNotNilOrEmpty }
-            .map { [unowned self] in
-                print("Токен не найден, получим его:")
-                return self.authService.postToken()
-                    .materialize()
-            }
-            .switchToLatest()
-            .share()
-        
-        request.failures()
-            .sink { [weak self] error in
-                self?.output.contentState = .error(message: error.localizedDescription)
-            }
-            .store(in: &cancellables)
-        
-        request.values()
-            .sink { [weak self] value in
-                print("Получен токен: \(value.accessToken)")
-                self?.userStorage.token = value.accessToken
-                self?.onAuthComplete.send()
+                self?.bindWeather()
             }
             .store(in: &cancellables)
     }
@@ -110,10 +78,10 @@ private extension MainViewModel {
         let citySelect = citySelected
             .compactMap { $0?.coordinate }
         
-        //MARK: Join flows(token with location(current or other city)) and get weather
-        let weatherRequest = onAuthComplete
-            .combineLatest(location.merge(with: citySelect))
-            .map(\.1)
+        let weatherRequest = location.merge(with: citySelect)
+            .handleEvents(receiveOutput: { [weak self] _ in
+                self?.output.contentState = .loading
+            })
             .map { [unowned self] in
                 self.weatherService.getCurrentWeather(location: $0)
                     .materialize()

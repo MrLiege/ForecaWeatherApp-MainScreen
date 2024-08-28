@@ -29,4 +29,18 @@ extension LinearGradient {
             startPoint: .topLeading,
             endPoint: .bottomTrailing)
     }
+    
+    static func saladGradient() -> LinearGradient {
+        return LinearGradient(
+            gradient: Gradient(colors: [Color(.systemIndigo), Color(.systemMint)]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing)
+    }
+    
+    static func mintGradient() -> LinearGradient {
+        return LinearGradient(
+            gradient: Gradient(colors: [Color(.systemTeal), Color(.systemMint)]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing)
+    }
 }

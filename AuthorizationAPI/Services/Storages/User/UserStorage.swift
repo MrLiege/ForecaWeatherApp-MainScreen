@@ -28,6 +28,7 @@ final class UserStorage: ObservableObject, UserStorageProtocol {
         self.soundEnabled = defaults.bool(forKey: UserStorageKey.soundEnabled.rawValue)
         self.temperatureUnit = defaults.string(forKey: UserStorageKey.temperatureUnit.rawValue) ?? "C"
         self.selectedCity = defaults.city(forKey: UserStorageKey.selectedCity.rawValue)
+        self.token = defaults.string(forKey: UserStorageKey.token.rawValue)
     }
     
     
@@ -62,10 +63,13 @@ final class UserStorage: ObservableObject, UserStorageProtocol {
     // MARK: - Access Token
     var token: String? {
         get {
-            defaults.string(forKey: UserStorageKey.token.rawValue)
+            let token = defaults.string(forKey: UserStorageKey.token.rawValue)
+            return token
         }
         set {
-            defaults.setValue(newValue, forKey: UserStorageKey.token.rawValue)
+            if let newValue = newValue {
+                defaults.setValue(newValue, forKey: UserStorageKey.token.rawValue)
+            }
         }
     }
     
@@ -77,6 +81,30 @@ final class UserStorage: ObservableObject, UserStorageProtocol {
             defaults.setValue(newValue.rawValue, forKey: UserStorageKey.responseLanguage.rawValue)
         }
     }
+    
+    var isOnboardingDone: Bool {
+        get {
+            defaults.bool(forKey: UserStorageKey.isOnboardingDone.rawValue)
+        }
+        set {
+            defaults.setValue(newValue, forKey: UserStorageKey.isOnboardingDone.rawValue)
+        }
+    }
+    
+    var appState: AppState {
+        get {
+            AppState(rawValue: defaults.string(forKey: UserStorageKey.appState.rawValue) ?? "auth") ?? .auth
+        }
+        set {
+            defaults.setValue(newValue.rawValue, forKey: UserStorageKey.appState.rawValue)
+        }
+    }
+}
+
+enum AppState: String {
+    case auth
+    case onboarding
+    case main
 }
 
 enum UserStorageKey: String {
@@ -86,6 +114,8 @@ enum UserStorageKey: String {
     case soundEnabled
     case temperatureUnit
     case selectedCity
+    case isOnboardingDone
+    case appState
 }
 
 extension UserDefaults {

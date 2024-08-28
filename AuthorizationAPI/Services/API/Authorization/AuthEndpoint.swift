@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum AuthEndpoint: TargetType {
-    case postToken
+    case postToken(username: String, password: String)
     
     var baseURL: URL {
         guard let url = URL(string: "https://pfa.foreca.com") else {
@@ -31,14 +31,17 @@ enum AuthEndpoint: TargetType {
     
     //MARK: - Tasks
     var task: Moya.Task {
-        var params = [String : Any]()
-        params["user"] = APISecureKeys.login
-        params["password"] = APISecureKeys.password
-        return .requestCompositeParameters(
-            bodyParameters: params,
-            bodyEncoding: JSONEncoding.default,
-            urlParameters: ["expire_hours" : 1]
-        )
+        switch self {
+        case .postToken(let username, let password):
+            var params = [String : Any]()
+            params["user"] = username
+            params["password"] = password
+            return .requestCompositeParameters(
+                bodyParameters: params,
+                bodyEncoding: JSONEncoding.default,
+                urlParameters: ["expire_hours" : 1]
+            )
+        }
     }
     
     //MARK: - Headers
